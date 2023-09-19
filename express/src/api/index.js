@@ -12,20 +12,19 @@ router.post("/transactions", (req, res) => {
   let { accountId, amount } = req.body
   const transactionId = uuidv4()
   try {
-    if (!accountId || !amount  || typeof amount !== 'number' ) {
-      res.status(403).json({ message: "Please enter an account id or amount" })
+    if (!accountId || amount === 0 || typeof amount !== "number") {
+      res
+        .status(403)
+        .json({ message: "Please enter a valid account id or amount" })
     } else {
       const timeStamp = new Date()
       const transactionType = amount > 0 ? "deposit" : "withdrawal"
 
       // it's able to withdraw or create a transactions with negative balance.
-      const currentBalance = transactions
-        .filter(trans => trans.accountId === accountId)
-        .reduce((acc, curr) => {
-          return transactionType === "deposit"
-            ? acc + curr.amount + amount
-            : acc - curr.amount - amount
-        }, 0)
+      const currentBalance =
+        transactions
+          .filter(trans => trans.accountId === accountId)
+          .reduce((acc, curr) => acc + curr.amount, 0) + amount
 
       const transaction = {
         accountId,
@@ -41,7 +40,9 @@ router.post("/transactions", (req, res) => {
         .json({ message: "Your transfer was successful", data: transaction })
     }
   } catch (err) {
-    res.status(500).json({ message: "Something went wrong", error: err.message })
+    res
+      .status(500)
+      .json({ message: "Something went wrong", error: err.message })
   }
 })
 
@@ -55,7 +56,9 @@ router.get("/accounts/:accountId", (req, res) => {
     }
     res.status(200).json(getAccountsById)
   } catch (err) {
-    res.status(500).json({ message: "Something went wrong", error: err.message })
+    res
+      .status(500)
+      .json({ message: "Something went wrong", error: err.message })
   }
 })
 
@@ -70,7 +73,10 @@ router.get("/transactions", (req, res) => {
     }
     res.json("No transactions found")
   } catch (err) {
-    res.json({message:"There's a problem in getting your transactions",  error: err.message})
+    res.json({
+      message: "There's a problem in getting your transactions",
+      error: err.message,
+    })
   }
 })
 
@@ -84,7 +90,9 @@ router.get("/transactions/:transactionId", (req, res) => {
     }
     res.status(200).json(getTransactionsById)
   } catch (err) {
-    res.status(500).json({ message: "Something went wrong", error: err.message })
+    res
+      .status(500)
+      .json({ message: "Something went wrong", error: err.message })
   }
 })
 
