@@ -49,7 +49,7 @@ const TransactionForm = ({ getAccountHistory }) => {
 
   useEffect(() => {
     return () => clearTimeout(timer)
-  }, [])
+  }, [timer])
 
   return (
     <form onSubmit={handleSubmitForm}>

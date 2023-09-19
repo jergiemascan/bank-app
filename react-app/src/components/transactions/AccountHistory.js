@@ -10,6 +10,7 @@ const AccountHistory = ({ accountTransactionsHistory, status }) => {
         {status && <StatusMessage status={status} />}
         {accountTransactionsHistory
           .sort((a, b) => new Date(b.timeStamp) - new Date(a.timeStamp))
+          .slice(0, 3)
           .map((transaction, index) => {
             return (
               <div
