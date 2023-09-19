@@ -42,7 +42,7 @@ const TransactionForm = ({ getAccountHistory }) => {
     } catch (error) {
       setStatus({
         isError: true,
-        message: error.message,
+        message:  "Please enter a valid account id or amount" 
       })
     }
   }
