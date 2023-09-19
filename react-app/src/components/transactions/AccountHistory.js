@@ -4,7 +4,7 @@ import "./Transaction.css"
 
 const AccountHistory = ({ accountTransactionsHistory, status }) => {
   return (
-    <div className="history-wrapper">
+    <section className="history-wrapper">
       <h1>Transaction history</h1>
       <div className="history">
         {status && <StatusMessage status={status} />}
@@ -40,7 +40,7 @@ const AccountHistory = ({ accountTransactionsHistory, status }) => {
             )
           })}
       </div>
-    </div>
+    </section>
   )
 }
 

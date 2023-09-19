@@ -2,31 +2,26 @@
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  padding: 5rem calc(1.5rem * 0.5);
+  padding: 5rem 2rem;
   gap: 1.5rem;
 
-  @media only screen and (min-width: 36rem) {
-    max-width: 33.75rem;
-    padding: 5rem 0;
-  }
   @media only screen and (min-width: 48rem) {
-    max-width: 50rem;
+    max-width: 62.5rem;
     flex-direction: row;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-  @media only screen and (min-width: 71.25rem) {
-    max-width: 50rem;
   }
 }
-
+.section {
+  @media only screen and (min-width: 48rem) {
+    width: 50%;
+  }
+}
 form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  padding: 4rem 5.5rem;
+  padding: 4rem 2rem;
   background-color: var(--biege);
   box-shadow: 0 4px 6px -1px var(--black-shadow),
     0 2px 4px -1px var(--black-shadow-light);
@@ -84,9 +79,13 @@ h1 {
   box-shadow: 0 4px 6px -1px var(--black-shadow),
     0 2px 4px -1px var(--black-shadow-light);
   border-radius: 4px;
+  @media only screen and (min-width: 48rem) {
+    width: 50%;
+  }
 }
 .history-list {
   background-color: var(--blue);
+
   border-radius: 10px;
   padding: 2rem 1.5rem;
   margin: 2rem 0;
