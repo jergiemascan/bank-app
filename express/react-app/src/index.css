@@ -1,0 +1,27 @@
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,400;1,700&display=swap");
+
+:root {
+  --white: #e1f4f4;
+  --biege:#f8f9fa;
+  --blue:#c3e8e8;
+  --blue-100:#04bebd;
+  --blue-200: #0e7c86;
+  --black-shadow: rgba(0, 0, 0, 0.1);
+  --black-shadow-light:rgba(0, 0, 0, 0.06);
+  --peach:#dd8a8a;
+}
+html {
+  margin: 0;
+}
+body {
+  font-family: "Inter", "Roboto Condensed", Sans-Serif;
+  background-color:var(--white);
+}
