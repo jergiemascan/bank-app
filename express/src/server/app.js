@@ -10,9 +10,9 @@ app.use(bodyParser.json())
 
 app.use("/", api_endpoints)
 
-app.use(express.static(path.join(__dirname, "../../react-app/build")))
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../../react-app/build", "index.html"))
-})
+// app.use(express.static(path.join(__dirname, "../../react-app/build")))
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../../react-app/build", "index.html"))
+// })
 
 module.exports = app
